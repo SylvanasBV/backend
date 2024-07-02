@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>mi primera pagina</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  link tree
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="continer">
+        <!--ESTUDIANTES-->
+        <a href="/create/Estudiante" class="btn btn-outline-primary mt-4"><i class='bx bx-plus-medical'> Agregar Estudiante</i></a>
+        <h1>estudiantes</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Cedula</th>
+                  <th scope="col">Tipo de documento</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha Nacimiento</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Telofono</th>
+                </tr>
+              </thead>
+              <tbody>
+            <% estudiante.forEach((user) => { %>
+                <tr>
+                  <th scope="row"><%= user.id_usuario %></th>
+                  <td><%= user.tipo_documento %></td>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.fecha_nacimiento %></td>
+                  <td><%= user.correo %></td>
+                  <td><%= user.telefono %></td>
+                  <td>        
+                    <a href="/edit/<%= user.id %>" class="btn btn-outline-success mt-1">Editar</a>
+                    <a href="/delete/<%= user.id %>" class="btn btn-outline-warning mt-1">Eliminar</i></a>
+                  </td>
+                </tr>
+            <% }) %>
+              </tbody>
+        </table>
+        <!--PROFESORES-->
+        <a href="/create/Profesores" class="btn btn-outline-primary mt-4"><i class='bx bx-plus-medical'> Agregar Profesor</i></a>
+        <h1>Profesores</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Cedula</th>
+                  <th scope="col">Tipo de documento</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha Nacimiento</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Telofono</th>
+                </tr>
+              </thead>
+              <tbody>
+            <% profesor.forEach((user) => { %>
+                <tr>
+                  <th scope="row"><%= user.id_usuario %></th>
+                  <td><%= user.tipo_documento %></td>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.fecha_nacimiento %></td>
+                  <td><%= user.correo %></td>
+                  <td><%= user.telefono %></td>
+                  <td>        
+                    <a href="/edit/<%= user.id %>" class="btn btn-outline-success mt-1">Editar</a>
+                    <a href="/delete/<%= user.id %>" class="btn btn-outline-warning mt-1">Eliminar</i></a>
+                  </td>
+                </tr>
+            <% }) %>
+              </tbody>
+        </table>
+        <!--ADMINISTRADOR-->
+        <a href="/create/Administrador" class="btn btn-outline-primary mt-4"><i class='bx bx-plus-medical'> Agregar administrador</i></a>
+        <h1>Administrador</h1>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                  <th scope="col">Cedula</th>
+                  <th scope="col">Tipo de documento</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Fecha Nacimiento</th>
+                  <th scope="col">Correo</th>
+                  <th scope="col">Telofono</th>
+                </tr>
+              </thead>
+              <tbody>
+            <% administrador.forEach((user) => { %>
+                <tr>
+                  <th scope="row"><%= user.id_usuario %></th>
+                  <td><%= user.tipo_documento %></td>
+                  <td><%= user.nombre %></td>
+                  <td><%= user.fecha_nacimiento %></td>
+                  <td><%= user.correo %></td>
+                  <td><%= user.telefono %></td>
+                  <td>        
+                    <a href="/edit/<%= user.id %>" class="btn btn-outline-success mt-1">Editar</a>
+                    <a href="/delete/<%= user.id %>" class="btn btn-outline-warning mt-1">Eliminar</i></a>
+                  </td>
+                </tr>
+            <% }) %>
+              </tbody>
+        </table>
+        <!--Aqui va el codigo -->
+        
+    </div>
+  </body>
+</html>
