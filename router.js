@@ -3,7 +3,34 @@ const router= express.Router();
 
 const conexion = require("./database/bd");
 router.get('/usuario', (req,res)=>{
-    conexion.query('SELECT * FROM usuario',(error,results)=>{
+    conexion.query('SELECT id_usuario,nombre,fecha_nacimiento,correo,telefono FROM usuario',(error,results)=>{
+        if(error){
+            return res.json(error);
+        } else {
+            return res.json(usuario=results);
+        }
+    })
+})
+router.get('/Calificaciones', (req,res)=>{
+    conexion.query('SELECT *,ROUND((nota.nota1+nota.nota2+nota.nota3)/3,1) as promedio FROM usuario,nota WHERE usuario.id_usuario = nota.id_usuario AND usuario.rol = "Estudiante"',(error,results)=>{
+        if(error){
+            return res.json(error);
+        } else {
+            return res.json(usuario=results);
+        }
+    })
+})
+router.get('/Actividades', (req,res)=>{
+    conexion.query('SELECT * FROM actividad, bootcamp WHERE actividad.id_bootcamp = bootcamp.id_bootcamp',(error,results)=>{
+        if(error){
+            return res.json(error);
+        } else {
+            return res.json(usuario=results);
+        }
+    })
+})
+router.get('/Sesion', (req,res)=>{
+    conexion.query('SELECT * FROM sesion',(error,results)=>{
         if(error){
             return res.json(error);
         } else {
