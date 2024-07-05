@@ -2,16 +2,18 @@ const conexion =require('../database/bd');
 exports.save = (req,res)=>{
     const id = req.body.id;
     const nombre = req.body.nombre;
-    const edad = req.body.edad;
-    const ciudad = req.body.ciudad;
+    const correo = req.body.correo;
+    const telefono = req.body.telefono;
+    const fecha = req.body.fecha_nacimiento;
+    const contrasena = req.body.contrasena;
     //console.log(nombre+"-"+ciudad);
-    conexion.query('INSERT INTO usuario SET ? ; INSERT INTO nota SET ?',[{id:id, nombre: nombre, edad: edad, ciudad: ciudad },{id_estudiante:id,nota1:0,nota2:0,nota3:0,nota4:0}], (error, results) => {
+    conexion.query('INSERT INTO usuario SET ? ; INSERT INTO nota SET ?',[{id_usuario:id, nombre: nombre, fecha: fecha, correo: correo, telefono:telefono, contrasena:contrasena },{id_estudiante:id,nota1:0,nota2:0,nota3:0,nota4:0,nota5:0}], (error, results) => {
 
         if (error) {
             console.log(error);
         } else {
 
-            res.redirect('/');
+            console.log('Hecho');
         }
     });
 }

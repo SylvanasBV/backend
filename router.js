@@ -39,7 +39,8 @@ router.get('/Sesion', (req,res)=>{
     })
 })
 
-
+const crud = require("./controllers/crud");
+router.post('/save', crud.save);
 /*router.get('/', (req,res)=>{
     //res.send('VISTA DE LA PAGINA CONTACTO');
     //se usa solamente para ver si genera consultas en el programa
